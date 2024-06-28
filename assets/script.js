@@ -123,7 +123,6 @@ const movies = [
     },
 ]
 
-
 // JS Basics
 
 /* ESERCIZIO A
@@ -222,13 +221,28 @@ console.log(result1);
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
 console.log("***Esercizio 3***")
-
+function splitMe(Ilovecoding) {
+    const coding = Ilovecoding.split(' ');
+    return coding;
+};
+const Ilovecoding = 'I love coding';
+const coding = splitMe(Ilovecoding);
+console.log(coding);
 
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
 console.log("***Esercizio 4***")
+function deleteOne(first, last) {
+    if (last) {
+        return first.slice(1);
+    } else {
+        return first.slice(0, -1);
+    }
+};
+console.log(deleteOne("First", true));
+console.log(deleteOne("Last", false));
 
 
 /* ESERCIZIO 5
@@ -237,15 +251,29 @@ console.log("***Esercizio 4***")
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 console.log("***Esercizio 5***")
+function onlyLetters(Ihave4dogs) {
+    return Ihave4dogs.replace(/[0-9]/g, '');
+};
+console.log(onlyLetters("I have 4 dogs"));
+console.log(onlyLetters("Andrea1992"));
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 console.log("***Esercizio 6***")
+
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
 console.log("***Esercizio 7***")
+function whatDayIsIt() {
+    const weekdays = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    return weekdays[dayOfWeek];
+};
+console.log(whatDayIsIt());
+
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
@@ -259,10 +287,22 @@ console.log("***Esercizio 7***")
   }
 */
 console.log("***Esercizio 8***")
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 console.log("***Esercizio 9***")
+function howManyDays(inputDate) {
+    const oneDay = 24 * 60 * 60 * 1000; // millisecondi in un giorno
+    const currentDate = new Date(); // data odierna
+    const differenceDays = Math.round(Math.abs((currentDate - inputDate) / oneDay));
+    return differenceDays;
+}
+
+// Esempio di utilizzo:
+const myDate = new Date(2024, 5, 10); // Imposta la tua data desiderata (giugno 10, 2024)
+console.log("Sono passati " + howManyDays(myDate) + " giorni da quella data.");
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
